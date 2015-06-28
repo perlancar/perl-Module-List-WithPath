@@ -43,9 +43,11 @@ sub list_modules($$) {
         my $code_add_result = sub {
             my ($key, $val) = @_;
             if (ref($results{$key}) eq 'ARRAY') {
-                push @{ $results{$key} }, $val;
+                push @{ $results{$key} }, $val
+                    unless grep { $_ eq $val } @{ $results{$key} };
             } elsif (defined $results{$key}) {
-                $results{$key} = [$results{$key}, $val];
+                $results{$key} = [$results{$key}, $val]
+                    unless $val eq $results{$key};
             } else {
                 $results{$key} = $val;
             }
