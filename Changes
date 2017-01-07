@@ -1,5 +1,3 @@
-Revision history for Module-List-WithPath
-
 0.003002 2015-06-28 (PERLANCAR)
 
          - Avoid duplicate paths in hash values.
